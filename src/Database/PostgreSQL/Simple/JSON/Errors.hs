@@ -46,6 +46,8 @@ execStatusToText CopyIn        = "copy_in"
 execStatusToText BadResponse   = "bad_response"
 execStatusToText NonfatalError = "non_fatal_error"
 execStatusToText FatalError    = "fatal_error"
+execStatusToText CopyBoth      = "copy_both"
+execStatusToText SingleTuple   = "single_tuple"
 
 execStatusFromText :: Text -> Maybe ExecStatus
 execStatusFromText "empty_query"     = Just EmptyQuery
@@ -56,6 +58,8 @@ execStatusFromText "copy_in"         = Just CopyIn
 execStatusFromText "bad_response"    = Just BadResponse
 execStatusFromText "non_fatal_error" = Just NonfatalError
 execStatusFromText "fatal_error"     = Just FatalError
+execStatusFromText "copy_both"       = Just CopyBoth
+execStatusFromText "single_tuple"    = Just SingleTuple
 execStatusFromText _ = Nothing
 
 instance FromJSON ExecStatus where
